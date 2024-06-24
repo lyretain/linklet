@@ -207,13 +207,14 @@
     <main x-data="app" x-cloak>
       <p x-show.transition.opacity="alert" :class="alert?.type" x-text="alert?.message"></p>
       <input placeholder="输入要缩短的网址..." x-model="url" x-ref="url" />
-      <details>
+<!--       <details> -->
 <!--         <summary>自定义设置</summary>
         <div>
           <input placeholder="slug" x-model="slug" />
           <small>不设置则随机生成 slug</small>
         </div> -->
-      </details>
+<!--       </details> -->
+      <br>
       <button :class="{ loading }" :disabled="loading || isValidated()" @click="submit($refs, $nextTick)">生成</button>
     </main>
     <footer>
