@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" href="asset/img/favicon.png"  >
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>短链生成器 - 激萌云链接</title>
+    <title>AIC.LA 短链生成器(URL Shortener) - AICOCLOUD</title>
     <style>
       :root {
         --color-primary: #5c7cfa;
@@ -203,23 +203,31 @@
     </style>
   </head>
   <body>
-    <header><h1>短链生成器</h1></header>
+    <header>
+      <h1>短链生成器</h1><br/>
+      <h3>URL Shortener</h3>
+      <meta name="robots" content="index,follow" />
+    	<meta name="author" content="harrisonwang" />
+    	<meta name="generator" content="AICOCLOUD" />
+    	<meta name="description" content="AIC.LA 短网址生成器|AIC.LA URL Shortener"/>
+      <meta name="keywords" content="短链接, 短網址, 短网址, URL縮短, URL缩短, 鏈接縮短, 链接缩短, 短鏈接生成, 短链接生成, 短網址生成, 短网址生成, 短鏈接工具, 短链接工具, 短網址工具, 短网址工具, 免費短鏈接, 免费短链接, 在線短鏈接生成器, 在线短链接生成器, 鏈接管理工具, 链接管理工具, 自訂短鏈接, 自定义短链接, 短鏈接分析, 短链接分析, 短網址轉換, 短网址转换, 短鏈接統計, 短链接统计, 短鏈接生成器中文, 短链接生成器中文, URL shortener, short link, short URL, link shortener, free short link generator, custom short URL, URL tracking, link management, 短縮URL, 短縮リンク, 短縮アドレス, URL短縮, リンク短縮, 無料URL短縮, 短縮URL作成, URL圧縮, URL管理ツール, カスタム短縮URL, 短縮リンク生成, 短縮URL統計, URLトラッキング, 短縮URLサービス">
+    </header>
     <main x-data="app" x-cloak>
       <p x-show.transition.opacity="alert" :class="alert?.type" x-text="alert?.message"></p>
-      <input placeholder="输入要缩短的网址..." x-model="url" x-ref="url" />
-<!--       <details> -->
-<!--         <summary>自定义设置</summary>
+      <input placeholder="输入要缩短的网址... (Enter your URL)" x-model="url" x-ref="url" />
+      <details>
+        <summary>自定义设置 (Optional custom)</summary>
         <div>
           <input placeholder="slug" x-model="slug" />
-          <small>不设置则随机生成 slug</small>
-        </div> -->
-<!--       </details> -->
+          <small>不设置则随机生成 slug (Slug random if unset.)</small>
+        </div>
+      </details>
       <br>
-      <button :class="{ loading }" :disabled="loading || isValidated()" @click="submit($refs, $nextTick)">生成</button>
+      <button :class="{ loading }" :disabled="loading || isValidated()" @click="submit($refs, $nextTick)">生成 (Shorten)</button>
     </main>
     <footer>
       © 2016~2024 Shijiazhuang MOE Information Technology Co., Ltd<br/>
-      基于 <a href="https://github.com/harrisonwang/linklet" target="_blank">Cloudflare</a> 的短链生成器<br/>
+      Powered By <a href="https://github.com/harrisonwang/linklet" target="_blank">harrisonwang/linklet</a><br/>
       <a href="https://beian.miit.gov.cn/" target="_blank">冀ICP备15001777号</a>
     </footer>
     <script src="asset/js/alpine.js"></script>
@@ -266,7 +274,7 @@
 
               $nextTick(() => {
                 $refs.url.select()
-                this.alert = { type: 'success', message: `链接 ${document.execCommand('Copy') ? '复制' : '生成'} ` }
+                this.alert = { type: 'success', message: `链接 (Link) ${document.execCommand('Copy') ? '复制 (Copy)' : '生成 (Shorten)'} ` }
               })
             })
             .catch(e => {
